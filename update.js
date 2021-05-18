@@ -1,12 +1,4 @@
 
-
-
-
-const FUNCTIONS = {
-    '+': increase,
-    '-': decrease
-}
-
 function Kelvin(temperature,exit){   //esto pasa todo a kelvin
     const multi = {
         'Kelvin' : 1,
@@ -21,8 +13,6 @@ function Kelvin(temperature,exit){   //esto pasa todo a kelvin
     return temperature*multi[exit]+sum[exit]
 }
 
-
-
 function Celsius(temperature,exit){   //esto pasa todo a celsius
     const multi = {
         'Kelvin' : 1,
@@ -30,10 +20,11 @@ function Celsius(temperature,exit){   //esto pasa todo a celsius
         'Fahrenheit' : 32*(5/9)
         }
     const sum = {
-        'Kelvin' : 0,
-        'Celsius': -273.15,
+        'Kelvin' :-273.15,
+        'Celsius': 0,
         'Fahrenheit' : -32*(5/9) //estoy en duda aca 
         }
+        console.log ("hola")
     return temperature*multi[exit]+sum[exit]
 }
 
@@ -59,26 +50,15 @@ const tempExit ={
 
 
     
-
-
-
-
-
-function increase(counter){
-    return counter + 1
-}
-
-function decrease(counter){
-    return counter - 1
-}
-
-function update(input, model){
-    const {counter} = model
-    const newCounter = FUNCTIONS[input](counter)
+function update(inputTemp,outputTemp,temp, model){
+    const newTemp= tempExit[outputTemp](temp,inputTemp)
     return {
         ...model,
-        counter: newCounter,
-        input: input
+        left: temp,
+        leftUnity: inputTemp,
+        right: newTemp,
+        rightUnity: outputTemp
+
     }
 }
 
