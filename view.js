@@ -22,33 +22,49 @@ function getTable(model){
     ]
 }
 
-function inputForm(model){
-    const {input} = model
-    const message = 'Increase or decrease?'
+function inputForm(){
+    const message = 'Left temperature is source? (Yes/No)'
     return inquirer.prompt([
         {
-            name: 'input',
+            name: 'posi',
             type: 'input',
             message: message,
-            default: input,
             validate: function(value){
-                if(value === '+' || value === '-'){
+                if(value === "Yes" || value === "No"){
                     return true
                 } else {
-                    return 'Enter + or -'
+                    return 'Enter Yes or No'
                 }
             }
         }
     ])
 }
 
-function listForm(model,message){
+function inputTempConvert(){
+    const message = 'Temperature value to convert ?'
+    return inquirer.prompt([
+        {
+            name: 'tempConvert',
+            type: 'input',
+            message: message,
+            validate: function(value){
+                if(isNaN(value)){
+                    return 'Enter a number'
+                } else {
+                    return true
+                }
+            }
+        }
+    ])
+}
+
+function listForm(message,name){
     const choices = [
         'Kelvin',
         'Celsius',
         'Fahrenheit']
     return inquirer.prompt({
-        name: 'input',
+        name: name,
         type: 'list',
         message: message,
         choices: choices
@@ -56,7 +72,7 @@ function listForm(model,message){
 }
 
 // Get actual console view
-function view(model){
+function allView(model){
     return {
         title: getTitle(),
         table: getTable(model)
@@ -64,7 +80,9 @@ function view(model){
 }
 
 module.exports = {
-    view, 
+    allView, 
     inputForm,
-    listForm
+    listForm,
+    inputTempConvert
 }
+

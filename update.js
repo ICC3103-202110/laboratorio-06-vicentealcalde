@@ -24,7 +24,6 @@ function Celsius(temperature,exit){   //esto pasa todo a celsius
         'Celsius': 0,
         'Fahrenheit' : -32*(5/9) 
         }
-        console.log ("hola")
     return temperature*multi[exit]+sum[exit]
 }
 
@@ -50,8 +49,11 @@ const tempExit ={
 
 
     
-function update(inputTemp,outputTemp,temp, model){
-    const newTemp= tempExit[outputTemp](temp,inputTemp)
+function update(inputTemp,outputTemp,temp, model,posi){
+    const newTemp=  tempExit[outputTemp](temp,inputTemp)
+   // console.log(temp)
+    //console.log(newTemp)
+    if( posi === 'Yes'){
     return {
         ...model,
         left: temp,
@@ -59,8 +61,17 @@ function update(inputTemp,outputTemp,temp, model){
         right: newTemp,
         rightUnity: outputTemp
 
+    }}
+    else{
+        return {
+            ...model,
+            left: newTemp,
+            leftUnity: outputTemp,
+            right: temp,
+            rightUnity: inputTemp
+
     }
-}
+}}
 
 module.exports = {
     update
