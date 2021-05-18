@@ -8,7 +8,7 @@ function Kelvin(temperature,exit){   //esto pasa todo a kelvin
     const sum = {
         'Kelvin' : 0,
         'Celsius': 273.15,
-        'Fahrenheit' : 0//estoy en duda aca 
+        'Fahrenheit' : 273.15-32*(5/9)//estoy en duda aca 
     }
     return temperature*multi[exit]+sum[exit]
 }
@@ -22,7 +22,7 @@ function Celsius(temperature,exit){   //esto pasa todo a celsius
     const sum = {
         'Kelvin' :-273.15,
         'Celsius': 0,
-        'Fahrenheit' : -32*(5/9) //estoy en duda aca 
+        'Fahrenheit' : -32*(5/9) 
         }
         console.log ("hola")
     return temperature*multi[exit]+sum[exit]
@@ -37,7 +37,7 @@ function Fahrenheit(temperature,exit){   //esto pasa todo a fahrenheit
     const sum = {
         'Kelvin' : 32-273.15*(9/5),
         'Celsius': 32,
-        'Fahrenheit' : 0//estoy en duda aca 
+        'Fahrenheit' : 0
     }
     return temperature*multi[exit]+sum[exit]
 }

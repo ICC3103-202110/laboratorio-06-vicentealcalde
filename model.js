@@ -1,9 +1,8 @@
 initModel = {
-    lef: 0,
+    left: 0,
     right: 0,
-    lefUnity: "celsius",
+    leftUnity: "celsius",
     rightUnity: "celsius",
-    input: "lef",
 }
 
 module.exports = {

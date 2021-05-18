@@ -5,7 +5,7 @@ const inquirer = require('inquirer')
 function getTitle(){
     return chalk.green(
         figlet.textSync(
-            'Counter App',
+            'Unit Converter App',
             {
                 horizontalLayout: 'full',
                 font: 'Nancyj-Underlined'
@@ -15,9 +15,10 @@ function getTitle(){
 }
 
 function getTable(model){
-    const {counter} = model
+    const {left,right,leftUnity,rightUnity} = model
     return [
-        {Counter: counter},
+        {
+            leftValue: left , leftUnit: leftUnity , rightValue: right , rightUnit: rightUnity},
     ]
 }
 
@@ -41,15 +42,15 @@ function inputForm(model){
     ])
 }
 
-function listForm(model){
-    const {input} = model
-    const message = 'Increase or decrease?'
-    const choices = ['+', '-']
+function listForm(model,message){
+    const choices = [
+        'Kelvin',
+        'Celsius',
+        'Fahrenheit']
     return inquirer.prompt({
         name: 'input',
         type: 'list',
         message: message,
-        default: input,
         choices: choices
     })
 }
