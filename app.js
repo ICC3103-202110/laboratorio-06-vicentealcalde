@@ -1,4 +1,9 @@
 /*
+important: sometimes the console.clear does not work well, 
+in that case open a new terminal, that should solve it
+*/
+
+/*
 For this laboratory, 
 the example shown by the teacher in class was used as a basis,
 so in view.js they are very similar
@@ -26,11 +31,10 @@ async function app(model){
     const {outputTemp} = await listForm("To ?",'outputTemp')
     model=update(inputTemp,outputTemp,tempConvert, model,posi)
     //console.clear()
-   // console.log('hola')
     app(model)
 }
 
 
 
-
+console.clear()
 app(model)

@@ -18,7 +18,10 @@ function getTable(model){
     const {left,right,leftUnity,rightUnity} = model
     return [
         {
-            leftValue: left , leftUnit: leftUnity , rightValue: right , rightUnit: rightUnity},
+            leftValue: left ,
+            leftUnit: leftUnity ,
+            rightValue: right , 
+            rightUnit: rightUnity},
     ]
 }
 
